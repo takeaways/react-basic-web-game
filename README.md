@@ -70,8 +70,50 @@
 ## 4 웹팩 설치 및 사용해보기
 <pre>
   <code>
+    nodejs => 자바스크립트 실행기!! 서버가 아닙니다
     npm i react react-dom
     npm i -D webpack webpack-cli
+    npm i -D @bable/core @babel/preset-env @babel/preset-ract babel-loader
+
+    @bable/core : 기본 바벨기능이 들어 있는 부분
+    @babel/preset-env : 환경에 맞게 알아서 바꿔주는것
+    @babel/preset-ract : react 지원
+    babel-loader : 바벨 웹팩 연결
+
+
+    [파일 생성!]
+    webpack.config.js
+
+    const path = require('path');
+
+    module.exports = {
+      name:'WordRelay-setting',
+      mode:'development', //실서비스: production
+      devtool:'eval', //빠르게
+      resolve:{extensions:['.js','.jsx']},
+
+
+      entry:{
+        app:['./client'],
+      },//입력
+
+      module:{
+        rules:[{
+          test:/.jsx?/, //js or jsx 에 적용하겠다
+          loader:'babel-loader', //바벨을 적용하겠다.
+          options:{
+            presets:['@babel/preset-env', '@babel/preset-react'],
+            plugins:['@babel/plugin-proposal-class-properties']
+          },
+        }]
+      },
+
+      output:{
+        path:path.join(__dirname,'dist'),  //__dirname은 현제 폴더
+        filename:'app.js',
+      }, // 출력
+    }
+
 
   </code>
 </pre>
