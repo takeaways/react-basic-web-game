@@ -59,5 +59,19 @@
 <pre>
 <code>
   1) 리액트의 표준이 훅스로!!
+
+  class -> className
+  for -> htmlForm
+
+  2) useState -> setState를 한 번에 모아서!! 비동기 처리!
 </code>
+</pre>
+
+## 4 웹팩 설치 및 사용해보기
+<pre>
+  <code>
+    npm i react react-dom
+    npm i -D webpack webpack-cli
+
+  </code>
 </pre>
