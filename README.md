@@ -37,4 +37,20 @@
 </code>
 </pre>
 
-### 2 - 1 구구단 게임 만들기
+### 2 - 1 JSX와 바벨
+<pre>
+<code>
+  자바스크립트 안에 테크를 사용하는 문법!!
+  컴포넌의 장점!!
+   1) 원하는 만큼 만들어 낼 수 있다
+
+  <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+</code>
+</pre>
+
+### 2 - 2 구구단 게임 react로 만들어 보기
+<pre>
+<code>
+
+</code>
+</pre>
