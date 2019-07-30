@@ -17,25 +17,24 @@
   react = 리액트의 기능을 담고 있는 js
   react-dom = 컴포넌트를 화면애 보여주기 위한 js (웹에 붙이기 기능)
 
-
-  <body>
-    <div id="root"></div>
-    <script>
-      const e = React.createElement;
-      class LikeButton extends React.Component{
-        constructor(props){
-          super(props);
-        }
-
-        render(){
-          return e('button',null,'Like') //<button>Like</button>
-        }
+  <div id="root"></div>
+  <script>
+    const e = React.createElement;
+    class LikeButton extends React.Component{
+      constructor(props){
+        super(props);
       }
-    </script>
-    <script>
-      ReactDOM.render(e(LikeButton), document.querySelector('#root'));
-    </script>
-  </body>
-  
+
+      render(){
+        return e('button',{onClick:()=>{console.log('clicked')}, type:'submit' },'Like') //<button>Like</button>
+      }
+    }
+  </script>
+  <script>
+    ReactDOM.render(e(LikeButton), document.querySelector('#root'));
+  </script>
+
 </code>
 </pre>
+
+### 2 - 1 구구단 게임 만들기
