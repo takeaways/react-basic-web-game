@@ -10,29 +10,66 @@
   <body>
     <div id="root"></div>
     <script type="text/babel">
-      class LikeButton extends React.Component{
+      class GuGuDan extends React.Component{
         constructor(props){
           super(props);
           this.state = {
-            liked :false,
+            first:Math.ceil(Math.random() * 9),
+            second:Math.ceil(Math.random() * 9),
+            value:'',
+            result:'',
+            input:null,
           }
         }
-        //jsx + 바벨 사용하여 코드 수정
-        render(){
-          return (
-            <button type="submit" onClick={ ()=> {this.setState({liked:true})} }>
-              {this.state.liked ? 'Liked' : 'Like'}
-            </button>
-          )
+
+        onChange = (e) => {
+          this.setState({
+            value:e.target.value,
+          })
         }
 
-        // render(){
-        //   return e('button',{onClick:()=>{this.setState({liked:true})}, type:'submit' },this.state.liked ? 'Liked' : 'Like') //<button>Like</button>
-        // }
+        onSubmit = (e) => {
+          e.preventDefault();
+          if(parseInt(this.state.value) === this.state.first * this.state.second){
+            this.setState((prevState)=>{
+              return {
+                result:'정답 ' + prevState.value ,
+                first:Math.ceil(Math.random()*9),
+                second:Math.ceil(Math.random()*9),
+                value:'',
+              }
+            })
+            this.input.focus();
+          }else{
+            this.setState({
+              result:'땡!',
+              value:'',
+            })
+          }
+        }
+
+
+        onRefInput = (c)=> {
+          this.input = c;
+        }
+
+        render(){
+          return (
+            <React.Fragment>
+                <div>{this.state.first} 곱하기 {this.state.second}</div>
+                <form onSubmit={this.onSubmit}>
+                  <input ref={this.onRefInput} type="number" value={this.state.value} onChange={this.onChange}/>
+                  <button>click</button>
+                </form>
+                <div> {this.state.result} </div>
+            </React.Fragment>
+          )
+        }
       }
     </script>
     <script type="text/babel">
-      ReactDOM.render( <LikeButton/>, document.querySelector('#root'));
+      ReactDOM.render( <GuGuDan/>, document.querySelector('#root'));
+
     </script>
   </body>
 </html>

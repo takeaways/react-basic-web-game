@@ -51,6 +51,6 @@
 ### 2 - 2 구구단 게임 react로 만들어 보기
 <pre>
 <code>
-
+  input 에다 focus 주기
 </code>
 </pre>
