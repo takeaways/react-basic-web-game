@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <script src="https://unpkg.com/react@16/umd/react.development.js"></script>
+    <script src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+    <title>구구단 게임</title>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="text/babel">
+      const GuGuDan = () => {
+        const [first, setFirst] = React.useState(Math.ceil(Math.random()*9));
+        const [second, setSecond] = React.useState(Math.ceil(Math.random()*9));
+        const [value, setValue] = React.useState('');
+        const [result, setResult] = React.useState('');
+        const inputRef = React.useRef(null);
+
+        const onSubmit = (e) => {
+          e.preventDefault();
+          if(parseInt(value) === first * second){
+            setFirst(Math.ceil(Math.random() * 9 ));
+            setSecond(Math.ceil(Math.random() * 9 ));
+            setValue('');
+            setResult('정답입니다!!');
+            inputRef.current.focus();
+          }else{
+            setValue('');
+            setResult('땡입니다!!');
+          }
+        }
+
+        const onChange = (e) => {
+          setValue(e.target.value)
+        }
+
+        return (
+          <React.Fragment>
+              <div>{first} 곱하기 {second}</div>
+              <form onSubmit={onSubmit}>
+                <input ref={inputRef} type="number" onChange={onChange} value={value}/>
+                <button type="submit">click</button>
+              </form>
+              <div>{result}</div>
+          </React.Fragment>
+        )
+      }
+    </script>
+    <script type="text/babel">
+      ReactDOM.render( <GuGuDan/>, document.querySelector('#root'));
+    </script>
+  </body>
+</html>
