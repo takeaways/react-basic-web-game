@@ -83,6 +83,8 @@
 
     [파일 생성!]
     webpack.config.js
+    presets 는 plugins의 모음이다! 별도의 설정을 또 할 수있다. 2)끝말잇기 webpack.config.js 파일 참고
+
 
     const path = require('path');
 
@@ -111,8 +113,36 @@
       output:{
         path:path.join(__dirname,'dist'),  //__dirname은 현제 폴더
         filename:'app.js',
+
       }, // 출력
     }
+  </code>
+</pre>
+___
+### 4 - 2 웹팩 설치 및 사용해보기
+<pre>
+  <code>
+    webpack-dev-server & hot-loader !!
+
+    npm i -D react-hot-loader webpack-dev-server
+
+    1) package.json 다음 수정해주기
+    "scripts": {
+      "dev": "webpack-dev-server --hot"
+    }
+
+    2) client.js파일 변경
+    const WordRelay = require('./WordRelay');
+    const {hot} = require('react-hot-loader/root');
+
+    const Hot = hot(WordRelay)
+    ReactDOM.render(<Hot/>, document.querySelector('#root'));
+
+    3) webpack.config.js fix
+    plugins:[
+      '@babel/plugin-proposal-class-properties',
+      'react-hot-loader/babel' <-- 추가
+    ]
 
 
   </code>
