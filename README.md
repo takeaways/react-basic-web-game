@@ -155,3 +155,11 @@ ___
   PureComponent & React.memo
 </code>
 </pre>
+
+## 6 반응체크!
+<pre>
+<code>
+  react는 자바스크립트만 담당하는 겁니다!!
+  
+</code>
+</pre>
