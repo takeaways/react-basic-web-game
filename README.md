@@ -73,7 +73,7 @@
     nodejs => 자바스크립트 실행기!! 서버가 아닙니다
     npm i react react-dom
     npm i -D webpack webpack-cli
-    npm i -D @bable/core @babel/preset-env @babel/preset-ract babel-loader
+    npm i -D @babel/core @babel/preset-env @babel/preset-react babel-loader
 
     @bable/core : 기본 바벨기능이 들어 있는 부분
     @babel/preset-env : 환경에 맞게 알아서 바꿔주는것
@@ -146,4 +146,12 @@ ___
 
 
   </code>
+</pre>
+
+## 5 숫자 야구게임 만들어 보기
+<pre>
+<code>
+  shouldComponentUpdate
+  PureComponent & React.memo
+</code>
 </pre>
