@@ -163,3 +163,31 @@ ___
   !
 </code>
 </pre>
+
+## 7 리액트 라이프사이틀
+<pre>
+<code>
+  훅스에서는 라이프 사이클이 업습니다..
+  그래서!
+  useEffect(()=>{ //componentDidMount, componentDidUpdate
+      return () => {
+        //componentWillUnmount
+      }
+  },[바뀌는 state를 넣어 주세요])
+
+  componentDidMount(){비동기 요청} <-- 최초 렌더가 될 떄만!!
+  componentDidUpdate(){}  <-- 리렌더링 후
+  componentWillUnmount(비동기 요청 정리) <-- 컴포넌트가 제거되기 직전!!
+
+  class -> constructor -> render -> ref -> componentDidMount -> (setState/props) -> render -> shouldComponentUpdate -> render -> componentDidUpdate -> componentWillUnmount -> 소멸
+
+
+</code>
+</pre>
+
+## 로또 추첨기
+<pre>
+<code>
+  반복문을 기점으로 컴포넌트를 만들어 준다! 
+</code>
+</pre>
