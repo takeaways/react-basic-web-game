@@ -2,6 +2,6 @@ const React = require('react');
 const ReactDOM = require('react-dom');
 const {hot} = require('react-hot-loader/root');
 
-const Lotto = require('./Lotto1');
-const Hot = hot(Lotto);
+const Tick = require('./Tick');
+const Hot = hot(Tick);
 ReactDOM.render(<Hot/>, document.querySelector('#root'));
